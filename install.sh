@@ -13,7 +13,7 @@ fi
 MDIR="/usr/lib/modules/$(uname -r)"
 if [ ! -d "$MDIR" ]; then
     MDIR="/lib/modules/$(uname -r)"
-    if [ ! -d "$MDIR"]; then
+    if [ ! -d "$MDIR" ]; then
         echo "Error: Could not find module directory!" >&2
         exit 1
     fi
@@ -22,7 +22,7 @@ fi
 NEWMDIR="$MDIR/${DEST_MODULE_LOCATION[0]}"
 
 MFILE="$MDIR/kernel/drivers/input/mouse/${BUILT_MODULE_NAME[0]}.ko"
-NEWMFILE="$NEWMDIR/${BUILT_MODULE_NAME[0]}.ko"
+NEWMFILE="$NEWMDIR/dkms/${BUILT_MODULE_NAME[0]}.ko"
 
 M=psmouse-dkms-alpsv7
 V=$PACKAGE_VERSION
